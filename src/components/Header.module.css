@@ -1,0 +1,36 @@
+.headerText {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.searchBoxContainer {
+    margin: 2rem 1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    background-color: #333333;
+}
+
+.searchBox {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: 1rem;
+    color: white;
+    margin-left: 1rem;
+}
+
+@media (min-width: 800px) {
+    .headerText {
+        text-align: center;
+    }
+    .searchBoxContainer {
+        width: 22rem;
+        margin: auto;
+    }
+}
