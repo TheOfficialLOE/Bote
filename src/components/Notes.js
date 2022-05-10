@@ -1,19 +1,24 @@
 import NoteItem from "./NoteItem";
 
-const DUMMY_DATA = [{
-   title: "Company",
-   sub: "Google",
-   data: "Google is the best!",
-   date: Date.now()
-}];
+const DUMMY_DATA = [
+    {
+        key: "n1",
+        title: "Company",
+        sub: "Google",
+        text: "Google is the best!",
+        tag: "notes",
+    },
+];
 
 const Notes = () => {
     return (
-        <main>
-            <NoteItem />
+        <main className="flex flex-row flex-wrap">
+            {DUMMY_DATA.map(data => {
+                return <NoteItem key={data.key} title={data.title} sub={data.sub} text={data.text} tag={data.tag} />
+            })}
+            {/* <NoteItem /> */}
         </main>
-    )
+    );
 };
-
 
 export default Notes;
