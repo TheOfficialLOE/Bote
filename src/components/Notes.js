@@ -6,7 +6,7 @@ const DUMMY_DATA = [
         title: "Company",
         sub: "Google",
         text: "Google is the best!",
-        tag: "notes",
+        tag: "Notes",
     },
 ];
 
@@ -16,7 +16,6 @@ const Notes = () => {
             {DUMMY_DATA.map(data => {
                 return <NoteItem key={data.key} title={data.title} sub={data.sub} text={data.text} tag={data.tag} />
             })}
-            {/* <NoteItem /> */}
         </main>
     );
 };
