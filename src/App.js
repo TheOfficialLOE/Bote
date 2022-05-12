@@ -1,13 +1,14 @@
-import Header from "./components/Header";
-import Notes from "./components/Notes";
-import Footer from "./components/Footer";
+import Main from "./pages/Main";
+import Add from "./pages/Add";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
     return (
         <div>
-            <Header />
-            <Notes />
-            <Footer />
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/add" element={<Add />} />
+            </Routes>
         </div>
     );
 }
