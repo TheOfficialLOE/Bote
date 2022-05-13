@@ -1,13 +1,13 @@
-import Header from "../components/Header";
+import MainHeader from "../components/MainHeader";
 import Notes from "../components/Notes";
-import Footer from "../components/Footer";
+import MainFooter from "../components/MainFooter";
 
 const Main = () => {
     return (
         <div>
-            <Header />
+            <MainHeader />
             <Notes />
-            <Footer />
+            <MainFooter />
         </div>
     );
 };
