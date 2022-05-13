@@ -1,3 +1,4 @@
+import React from "react";
 import NoteItem from "./NoteItem";
 
 const DUMMY_DATA = [
@@ -12,11 +13,11 @@ const DUMMY_DATA = [
 
 const Notes = () => {
     return (
-        <main className="flex flex-row flex-wrap">
+        <React.Fragment>
             {DUMMY_DATA.map(data => {
-                return <NoteItem key={data.key} title={data.title} sub={data.sub} text={data.text} tag={data.tag} />
+                return <NoteItem key={data.key} title={data.title} sub={data.sub} text={data.text} tag={data.tag}/>
             })}
-        </main>
+        </React.Fragment>
     );
 };
 
