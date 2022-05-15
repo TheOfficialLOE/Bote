@@ -1,9 +1,9 @@
-import React, {useRef} from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom";
 import AddNoteForm from "../components/AddNoteForm";
+import Miscellaneous from "../components/Miscellaneous";
 
 const Add = () => {
-
 
     const navigate = useNavigate();
 
@@ -24,6 +24,9 @@ const Add = () => {
             <main className="mt-8 ml-4">
                 <AddNoteForm />
             </main>
+            <footer className="fixed bottom-0 w-full ">
+                <Miscellaneous />
+            </footer>
         </React.Fragment>
 
     )
