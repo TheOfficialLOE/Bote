@@ -1,7 +1,7 @@
 import React from "react";
 
 const ColorContext = React.createContext({
-    border: "border-l-yellow-500",
+    border: "border-yellow-500",
     onColorClicked: (color) => {}
 });
 

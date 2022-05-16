@@ -13,7 +13,7 @@ const colorReducer = (state, action) => {
 const ColorProvider = (props) => {
 
     const [state, dispatch] =useReducer(colorReducer, {
-        border: "border-l-yellow-500"
+        border: "border-yellow-500"
     });
 
     const changeColor = (color) => {
