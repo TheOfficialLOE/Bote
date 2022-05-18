@@ -7,11 +7,8 @@ const ColorIcon = (props) => {
     const colorCtx = useContext(msclContext)
 
     const iconClickHandler = () => {
-        colorCtx.onColorClicked(props.border)
+        colorCtx.onColorClicked(props.border, props.bg)
     };
-
-    if (colorCtx.border === props.border)
-        console.log(colorCtx.border, props.border)
 
     return (
         <div className={`w-10 h-10 mr-2 border-4 rounded-full p-1 cursor-pointer ${props.border} text-center`} onClick={iconClickHandler}>

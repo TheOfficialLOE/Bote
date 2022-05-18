@@ -5,7 +5,8 @@ import ColorContext from "./color-context";
 const colorReducer = (state, action) => {
     if (action.type === "click") {
         return {
-            border: action.value
+            border: action.value.border,
+            bg: action.value.bg,
         };
     }
 }
@@ -13,15 +14,17 @@ const colorReducer = (state, action) => {
 const ColorProvider = (props) => {
 
     const [state, dispatch] =useReducer(colorReducer, {
-        border: "border-yellow-500"
+        border: "border-yellow-500",
+        bg: "bg-yellow-500"
     });
 
-    const changeColor = (color) => {
-        dispatch({ type: "click", value: color });
+    const changeColor = (border, bg) => {
+        dispatch({ type: "click", value: { border, bg } });
     }
 
     const colorCtx = {
         border: state.border,
+        bg: state.bg,
         onColorClicked: changeColor
     };
 
