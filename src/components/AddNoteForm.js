@@ -15,12 +15,14 @@ const AddNoteForm = () => {
         const target = e.target;
         subRef.current.style.height = "30px";
         subRef.current.style.height = `${target.scrollHeight}px`;
+        window.scrollTo({ top: target.scrollHeight });
     }
 
     const textTextAreaHeightHandler = (e) => {
         const target = e.target;
         textRef.current.style.height = "30px";
         textRef.current.style.height = `${target.scrollHeight}px`;
+        window.scrollTo({ top: document.body.scrollHeight });
     }
 
     const formSubmitHandler = (event) => {
@@ -30,7 +32,7 @@ const AddNoteForm = () => {
             title: titleRef.current.value,
             subtitle: subRef.current.value,
             text: textRef.current.value,
-            color: bg,
+            background: bg,
             category: "Notes"
         }).catch(err => {
             console.log(err);
@@ -46,7 +48,7 @@ const AddNoteForm = () => {
                       className={`bg-[#292929] w-full mt-8 outline-0 text-xl text-[#8F8F8F] resize-none overflow-hidden border-l-4 ${border} pl-2 pr-4 rounded-sm`}
                       ref={subRef} onChange={subTextAreaHeightHandler}/>
             <textarea placeholder="Text"
-                      className="bg-inherit w-full pr-4 outline-0 text-xl text-[#8F8F8F] mt-10 resize-none overflow-hidden"
+                      className="bg-inherit pb-36 w-full pr-4 outline-0 text-xl text-[#8F8F8F] mt-10 resize-none overflow-hidden"
                       ref={textRef} onChange={textTextAreaHeightHandler}/>
 
         </form>

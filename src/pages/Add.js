@@ -12,8 +12,8 @@ const Add = () => {
     };
 
     return (
-        <React.Fragment>
-            <header className="flex flex-row space">
+        <div className="h-screen">
+            <header className="flex flex-row">
                 <button className="mt-8 ml-4" onClick={navigateBackHandler}>
                     <i className="fa-xl fa-solid fa-angle-left text-[#A5A5A5]"></i>
                 </button>
@@ -24,10 +24,10 @@ const Add = () => {
             <main className="mt-8 ml-4">
                 <AddNoteForm />
             </main>
-            <footer className="fixed bottom-0 w-full ">
+            <footer className="fixed bottom-0 w-full">
                 <Miscellaneous />
             </footer>
-        </React.Fragment>
+        </div>
 
     )
 };
