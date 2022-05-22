@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 
-const MainFooter = () => {
+const HomeFooter = () => {
 
     const navigate = useNavigate();
 
@@ -17,4 +17,4 @@ const MainFooter = () => {
         </div>
     );
 };
-export default MainFooter;
+export default HomeFooter;

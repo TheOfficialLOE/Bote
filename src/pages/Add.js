@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import AddNoteForm from "../components/AddNoteForm";
 import Miscellaneous from "../components/Miscellaneous";
 
-const Add = () => {
+const Add = (props) => {
 
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const Add = () => {
                 </button>
             </header>
             <main className="mt-8 ml-4 flex-grow">
-                <AddNoteForm />
+                <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved}/>
             </main>
             <footer className="">
                 <Miscellaneous />

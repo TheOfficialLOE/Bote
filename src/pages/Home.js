@@ -1,9 +1,10 @@
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import Notes from "../components/Notes";
-import MainFooter from "../components/MainFooter";
+import HomeFooter from "../components/HomeFooter";
 
-const Main = () => {
+const Home = (props) => {
+
     return (
         <React.Fragment>
             <header>
@@ -14,10 +15,10 @@ const Main = () => {
                 <Notes />
             </main>
             <footer className="fixed bottom-0 bg-[#2f2d2e] w-full h-20">
-                <MainFooter />
+                <HomeFooter />
             </footer>
         </React.Fragment>
     );
 };
 
-export default Main;
+export default Home;
