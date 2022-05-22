@@ -28,6 +28,32 @@ const AddNoteForm = () => {
     const formSubmitHandler = (event) => {
         event.preventDefault();
 
+        const title = titleRef.current.value;
+        const subtitle = subRef.current.value;
+        const text = textRef.current.value;
+
+        if (!title.length || title.length < 3) {
+            console.log("Title too short");
+            return;
+        }
+
+        if (!subtitle.length && !text.length) {
+            console.log("Enter the body");
+            return;
+        }
+
+        if (subtitle.length && subtitle.length < 5) {
+            console.log("Subtitle too short");
+            return;
+        }
+
+        if (text.length && text.length < 5) {
+            console.log("Text too short");
+            return;
+        }
+
+        // todo: change `text` field to `body`
+
         db.notes.add({
             title: titleRef.current.value,
             subtitle: subRef.current.value,
