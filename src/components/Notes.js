@@ -1,21 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import NoteItem from "./NoteItem";
+import {db} from "../store/db";
 
-const DUMMY_DATA = [
-    {
-        key: "n1",
-        title: "Company",
-        sub: "Google",
-        text: "Google is the best!",
-        tag: "Notes",
-    },
-];
 
 const Notes = () => {
+
+    const [notes, setNotes] = useState(null);
+
+    useEffect(() => {
+        const getNotes = async () => {
+            const notes = await db.notes.toArray();
+            setNotes(notes);
+        }
+        getNotes();
+    }, []);
+
     return (
         <React.Fragment>
-            {DUMMY_DATA.map(data => {
-                return <NoteItem key={data.key} title={data.title} sub={data.sub} text={data.text} tag={data.tag}/>
+            {notes && notes.map(note => {
+                return <NoteItem key={note.id} title={note.title} sub={note.subtitle} text={note.text} tag={note.tag}/>
             })}
         </React.Fragment>
     );

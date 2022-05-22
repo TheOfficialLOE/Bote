@@ -56,15 +56,13 @@ const AddNoteForm = (props) => {
             return;
         }
 
-        // todo: change `text` field to `body`
-        // todo: add date field
-
         db.notes.add({
             title,
             subtitle,
             text,
             background: bg,
-            category: "Notes"
+            tag: "Notes",
+            date: Date.now()
         }).catch(err => {
             console.log(err);
         });
