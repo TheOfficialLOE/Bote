@@ -12,7 +12,7 @@ const Add = () => {
     };
 
     return (
-        <div className="h-screen">
+        <div className="h-screen flex flex-col">
             <header className="flex flex-row">
                 <button className="mt-8 ml-4" onClick={navigateBackHandler}>
                     <i className="fa-xl fa-solid fa-angle-left text-[#A5A5A5]"></i>
@@ -21,10 +21,10 @@ const Add = () => {
                     <i className="fa-xl fa-solid fa-check text-[#A5A5A5]"></i>
                 </button>
             </header>
-            <main className="mt-8 ml-4">
+            <main className="mt-8 ml-4 flex-grow">
                 <AddNoteForm />
             </main>
-            <footer className="fixed bottom-0 w-full">
+            <footer className="">
                 <Miscellaneous />
             </footer>
         </div>

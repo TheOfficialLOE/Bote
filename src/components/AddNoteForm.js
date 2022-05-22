@@ -53,11 +53,12 @@ const AddNoteForm = () => {
         }
 
         // todo: change `text` field to `body`
+        // todo: add date field
 
         db.notes.add({
-            title: titleRef.current.value,
-            subtitle: subRef.current.value,
-            text: textRef.current.value,
+            title,
+            subtitle,
+            text,
             background: bg,
             category: "Notes"
         }).catch(err => {
