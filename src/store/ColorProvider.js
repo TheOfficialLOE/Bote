@@ -2,6 +2,11 @@
 import React, {useReducer} from "react";
 import ColorContext from "./color-context";
 
+const initial = {
+    border: "border-noteColor1",
+    bg: "bg-noteColor1"
+}
+
 const colorReducer = (state, action) => {
     if (action.type === "click") {
         return {
@@ -9,23 +14,27 @@ const colorReducer = (state, action) => {
             bg: action.value.bg,
         };
     }
+    else if (action.type === "reset")
+        return initial
 }
 
 const ColorProvider = (props) => {
 
-    const [state, dispatch] =useReducer(colorReducer, {
-        border: "border-yellow-500",
-        bg: "bg-yellow-500"
-    });
+    const [state, dispatch] = useReducer(colorReducer, initial);
 
     const changeColor = (border, bg) => {
         dispatch({ type: "click", value: { border, bg } });
     }
 
+    const resetColor = () => {
+        dispatch({ type: "reset" });
+    }
+
     const colorCtx = {
         border: state.border,
         bg: state.bg,
-        onColorClicked: changeColor
+        onColorClicked: changeColor,
+        reset: resetColor
     };
 
     return (

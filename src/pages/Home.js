@@ -9,12 +9,13 @@ const Home = (props) => {
         <React.Fragment>
             <header>
                 <p className="ml-4 mt-8 text-4xl font-bold md:text-center">My Notes</p>
-                <SearchBar />
+                <SearchBar/>
             </header>
-            <main className="flex flex-row flex-wrap">
-                <Notes />
+            <main
+                className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 justify-items-center">
+                <Notes/>
             </main>
-            <footer className="fixed bottom-0 bg-[#2f2d2e] w-full h-20">
+            <footer className="fixed bottom-0 bg-quickActionsBackground w-full h-20">
                 <HomeFooter />
             </footer>
         </React.Fragment>

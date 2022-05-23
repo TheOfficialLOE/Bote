@@ -1,9 +1,10 @@
 import React from "react";
 
 const ColorContext = React.createContext({
-    border: "border-yellow-500",
-    bg: "bg-yellow-500",
-    onColorClicked: (color, bg) => {}
+    border: "border-noteColor1",
+    bg: "bg-noteColor1",
+    onColorClicked: (color, bg) => {},
+    reset: () => {}
 });
 
 export default ColorContext;
