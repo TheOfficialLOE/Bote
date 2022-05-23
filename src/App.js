@@ -17,7 +17,8 @@ function App() {
             <React.Fragment>
                 <Routes>
                     <Route path="/" element={<Home />}/>
-                    <Route path="/add" element={<Add onNoteSaved={onNoteSaved}/>}/>
+                    <Route path="/add" element={<Add action="add" onNoteSaved={onNoteSaved}/>}/>
+                    <Route path="/notes/:noteId" element={<Add action="view" onNoteSaved={onNoteSaved}/>} />
                 </Routes>
                 <ToastContainer/>
             </React.Fragment>

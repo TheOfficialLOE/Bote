@@ -18,7 +18,7 @@ const Notes = () => {
     return (
         <React.Fragment>
             {notes && notes.map(note => {
-                return <NoteItem key={note.id} bg={note.background} title={note.title} sub={note.subtitle} text={note.text} tag={note.tag}/>
+                return <NoteItem key={note.id} id={note.id} bg={note.background} title={note.title} sub={note.subtitle} text={note.text} tag={note.tag}/>
             })}
         </React.Fragment>
     );

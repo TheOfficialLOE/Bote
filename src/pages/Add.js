@@ -26,7 +26,7 @@ const Add = (props) => {
                 </button>
             </header>
             <main className="mt-8 ml-4 flex-grow">
-                <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved}/>
+                <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved} action={props.action}/>
             </main>
             <footer>
                 <Miscellaneous />
