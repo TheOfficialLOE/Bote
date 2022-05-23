@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {warn} from "../util/toast";
 import ColorContext from "../store/color-context";
 import {db} from "../store/db";
+import {readSingle, update} from "../store/dbActions";
 
 const AddNoteForm = (props) => {
 
@@ -21,7 +22,7 @@ const AddNoteForm = (props) => {
 
     const colorCtx = useContext(ColorContext);
     const border = colorCtx.border;
-    const bg = colorCtx.bg;
+    const color = colorCtx.color;
 
     const titleChangeHandler = (e) => {
         const target = e.target;
@@ -50,10 +51,11 @@ const AddNoteForm = (props) => {
 
             const id = params.noteId;
 
-            db.notes.get({id: +id}).then(data => {
+            readSingle(+id).then(data => {
                 setTitle(data.title);
                 setSubtitle(data.subtitle);
                 setText(data.text);
+                colorCtx.changeColor(data.color);
             });
 
         }
@@ -89,35 +91,48 @@ const AddNoteForm = (props) => {
                     title,
                     subtitle,
                     text,
-                    background: bg,
+                    color: colorCtx.color,
                     tag: "Notes",
                     date: Date.now()
                 }).catch(err => {
                     console.log(err);
                 });
+
+                props.onNoteSaved();
+                props.navigate();
+
                 break;
             }
             case "view": {
 
-                const id = params.noteId;
+                const id = parseInt(params.noteId);
 
-                db.notes.update(+id, {
-                    title,
-                    subtitle,
-                    text,
-                    background: bg,
-                    tag: "Notes",
-                    date: Date.now()
-                }).catch(err => {
-                    console.log(err);
+                readSingle(id).then(data => {
+                    if (data.title !== title) {
+                        update(id, { title })
+                        props.onNoteSaved();
+                        props.navigate();
+                    }
+                    if (data.subtitle !== subtitle) {
+                        update(id, { subtitle });
+                        props.onNoteSaved();
+                        props.navigate();
+                    }
+                    if (data.text !== text) {
+                        update(id, { text });
+                        props.onNoteSaved();
+                        props.navigate();
+                    }
+                    if (data.color !== color) {
+                        update(id, { color });
+                        props.onNoteSaved();
+                        props.navigate();
+                    }
                 });
 
                 break;
             }
         }
-
-        props.onNoteSaved();
-        props.navigate();
 
     };
 
@@ -133,7 +148,6 @@ const AddNoteForm = (props) => {
                 <textarea placeholder="Text"
                           className="bg-primary pb-36 w-full pr-4 outline-0 text-xl text-white mt-10 resize-none overflow-hidden"
                           ref={textRef} onChange={textChangeHandler} value={text}/>
-
             </form>
             <ToastContainer/>
         </React.Fragment>

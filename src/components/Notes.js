@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import NoteItem from "./NoteItem";
-import {db} from "../store/db";
+import {readAll} from "../store/dbActions";
 
 
 const Notes = () => {
@@ -9,7 +9,8 @@ const Notes = () => {
 
     useEffect(() => {
         const getNotes = async () => {
-            const notes = await db.notes.toArray();
+            const notes = await readAll();
+            console.log(notes)
             setNotes(notes);
         }
         getNotes();
@@ -18,7 +19,7 @@ const Notes = () => {
     return (
         <React.Fragment>
             {notes && notes.map(note => {
-                return <NoteItem key={note.id} id={note.id} bg={note.background} title={note.title} sub={note.subtitle} text={note.text} tag={note.tag}/>
+                return <NoteItem key={note.id} id={note.id} bg={"bg-" + note.color} title={note.title} sub={note.subtitle} text={note.text} tag={note.tag}/>
             })}
         </React.Fragment>
     );
