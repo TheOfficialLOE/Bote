@@ -1,19 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import NoteItem from "./NoteItem";
-import {readAll} from "../store/dbActions";
 
+const Notes = (props) => {
 
-const Notes = () => {
-
-    const [notes, setNotes] = useState(null);
-
-    useEffect(() => {
-        const getNotes = async () => {
-            const notes = await readAll();
-            setNotes(notes);
-        }
-        getNotes();
-    }, []);
+    const notes = props.notes;
 
     return (
         <React.Fragment>
