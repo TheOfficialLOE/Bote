@@ -20,7 +20,7 @@ const NoteItem = (props) => {
                     {props.tag}
                 </p>
                 <p className="text-white text-xs ml-8">
-                    {new Date().toISOString().slice(0, 10).replace(/-/g, "/")}
+                    {props.date}
                 </p>
             </div>
         </section>

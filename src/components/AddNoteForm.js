@@ -93,7 +93,7 @@ const AddNoteForm = (props) => {
                     text,
                     color: colorCtx.color,
                     tag: "Notes",
-                    date: Date.now()
+                    date: new Date().toISOString().slice(0, 10).replace(/-/g, "/")
                 }).catch(err => {
                     console.log(err);
                 });
@@ -113,22 +113,31 @@ const AddNoteForm = (props) => {
                         props.onNoteSaved();
                         props.navigate();
                     }
-                    if (data.subtitle !== subtitle) {
+                    else if (data.subtitle !== subtitle) {
                         update(id, { subtitle });
                         props.onNoteSaved();
                         props.navigate();
                     }
-                    if (data.text !== text) {
+                    else if (data.text !== text) {
                         update(id, { text });
                         props.onNoteSaved();
                         props.navigate();
                     }
-                    if (data.color !== color) {
+                    else if (data.color !== color) {
                         update(id, { color });
                         props.onNoteSaved();
                         props.navigate();
                     }
+                    else if (data.date !== new Date().toISOString().slice(0, 10).replace(/-/g, "/")) {
+                        update(id, { date: new Date().toISOString().slice(0, 10).replace(/-/g, "/") });
+                        props.onNoteSaved();
+                        props.navigate();
+                    }
+                    else
+                        props.navigate();
                 });
+
+
 
                 break;
             }
