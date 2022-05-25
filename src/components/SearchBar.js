@@ -1,4 +1,3 @@
-import classes from "./MainHeader.module.css";
 
 const SearchBar = (props) => {
 
@@ -7,9 +6,9 @@ const SearchBar = (props) => {
     };
 
     return (
-        <div className={classes.searchBoxContainer}>
-            <i className={`fa-solid fa-magnifying-glass fa-lg ${classes.icon}`}></i>
-            <input className={classes.searchBox} type="text" placeholder="Search your notes..." onChange={searchHandler}/>
+        <div className="bg-searchBackground my-8 mx-4 py-4 px-8 flex items-center rounded-3xl md:w-96 md:my-8 md:mx-auto">
+            <i className="fa-solid fa-magnifying-glass fa-lg"></i>
+            <input className="w-full outline-0 border-0 bg-inherit text-lg text-white ml-4" type="text" placeholder="Search your notes..." onChange={searchHandler}/>
         </div>
     )
 };
