@@ -24,6 +24,8 @@ const AddNoteForm = (props) => {
     const border = colorCtx.border;
     const color = colorCtx.color;
 
+    // todo: you may want to make a custom hook for input handlers
+
     const titleChangeHandler = (e) => {
         const target = e.target;
         setTitle(target.value);
@@ -62,6 +64,9 @@ const AddNoteForm = (props) => {
 
     }, [action, params.noteId]);
 
+
+    // todo: updating and saving note has a bug
+
     const formSubmitHandler = (event) => {
         event.preventDefault();
 
@@ -84,6 +89,8 @@ const AddNoteForm = (props) => {
             warn({text: "Text is too short"});
             return;
         }
+
+        // todo: should this switch statement be here?
 
         switch (action) {
             case "add": {
@@ -136,8 +143,6 @@ const AddNoteForm = (props) => {
                     else
                         props.navigate();
                 });
-
-
 
                 break;
             }

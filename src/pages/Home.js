@@ -9,6 +9,7 @@ const Home = (props) => {
     const [notes, setNotes] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState("");
 
+    // todo: convert both data and search phrase to lowercase first
     useEffect(() => {
         const loadNotes = async () => {
             const notes = await readAll();
@@ -28,11 +29,15 @@ const Home = (props) => {
         setSearchPhrase(phrase);
     };
 
+    const filterByTagHandler = (tag) => {
+        console.log(tag)
+    }
+
     return (
         <React.Fragment>
             <header>
-                <p className="ml-4 mt-8 text-4xl font-bold md:text-center">My Notes</p>
-                <SearchBar searchNotes={searchNoteHandler}/>
+                <h1 className="ml-4 mt-8 text-4xl font-bold md:text-center">My Notes</h1>
+                <SearchBar searchNotes={searchNoteHandler} filter={filterByTagHandler}/>
             </header>
             <main
                 className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 justify-items-center">

@@ -10,7 +10,7 @@ const NoteItem = (props) => {
     };
 
     return (
-        <section className={`w-48 ${props.bg} p-4 rounded-xl flex flex-col cursor-pointer`} onClick={navigateHandler}>
+        <article className={`w-48 ${props.bg} p-4 rounded-xl flex flex-col cursor-pointer shadow-xl`} onClick={navigateHandler}>
             <h3 className="font-bold">{props.title}</h3>
             <p className="text-sm text-white mt-2">
                 {props.sub ? props.sub : props.text}
@@ -23,7 +23,7 @@ const NoteItem = (props) => {
                     {props.date}
                 </p>
             </div>
-        </section>
+        </article>
     );
 };
 
