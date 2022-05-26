@@ -16,7 +16,7 @@ const Add = (props) => {
     };
 
     return (
-        <div className="h-screen flex flex-col">
+        <div className="h-screen">
             <header className="flex flex-row">
                 <button className="mt-8 ml-4" onClick={navigateBackHandler}>
                     <i className="fa-xl fa-solid fa-angle-left text-icon"></i>
@@ -25,10 +25,10 @@ const Add = (props) => {
                     <i className="fa-xl fa-solid fa-check text-icon"></i>
                 </button>
             </header>
-            <main className="mt-8 ml-4 flex-grow">
+            <main className="mt-8 ml-4">
                 <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved} action={props.action}/>
             </main>
-            <footer>
+            <footer className="fixed bottom-0 w-full translate-y-16 hover:translate-y-0 transition-all">
                 <Miscellaneous />
             </footer>
         </div>

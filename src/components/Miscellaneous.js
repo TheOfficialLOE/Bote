@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import ColorIcon from "./ColorIcon";
 
 
 const Miscellaneous = (props) => {
 
     return (
-        <div className="bg-[#1F1F1F] p-4 text-xl">
+        <div className="bg-[#1F1F1F] p-4 text-xl rounded-t-2xl">
             <h3 className="text-center font-bold">Miscellaneous</h3>
             <div className="flex flex-row justify-center w-full mt-4">
                 <ColorIcon color="noteColor1" border="border-noteColor1" bg="bg-noteColor1"/>

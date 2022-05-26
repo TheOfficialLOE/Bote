@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from "react";
 import SearchBar from "../components/SearchBar";
 import Notes from "../components/Notes";
-import HomeFooter from "../components/HomeFooter";
 import {readAll} from "../store/dbActions";
+import {useNavigate} from "react-router-dom";
 
 const Home = (props) => {
+
+    const navigate = useNavigate();
 
     const [notes, setNotes] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState("");
@@ -31,7 +33,11 @@ const Home = (props) => {
 
     const filterByTagHandler = (tag) => {
         console.log(tag)
-    }
+    };
+
+    const redirectToAddPageHandler = () => {
+        navigate("/add")
+    };
 
     return (
         <React.Fragment>
@@ -43,9 +49,13 @@ const Home = (props) => {
                 className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 justify-items-center">
                 <Notes notes={notes}/>
             </main>
-            <footer className="fixed bottom-0 bg-quickActionsBackground w-full h-20">
-                <HomeFooter />
-            </footer>
+            <button onClick={redirectToAddPageHandler}
+                className="shadow-xl shadow-accent/20 bg-accent w-12 h-12 rounded-full absolute bottom-8 right-8 md:bottom-14 md:right-12 right-0">
+                <i className="fa-xl fa-solid fa-plus text-center"></i>
+            </button>
+            {/*<footer className="fixed bottom-0 bg-quickActionsBackground w-full h-20">*/}
+            {/*    <HomeFooter />*/}
+            {/*</footer>*/}
         </React.Fragment>
     );
 };
