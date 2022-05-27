@@ -28,7 +28,7 @@ const Add = (props) => {
             <main className="mt-8 ml-4">
                 <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved} action={props.action}/>
             </main>
-            <footer className="translate-y-14 fixed bottom-0 w-full hover:translate-y-0 transition-all">
+            <footer className={`${props.action === "add" ? "translate-y-[6.5rem]" : "translate-y-36"} md:translate-y-14 fixed bottom-0 w-full hover:translate-y-0 transition-all`}>
                 <Miscellaneous action={props.action}/>
             </footer>
         </div>

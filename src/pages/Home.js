@@ -55,7 +55,7 @@ const Home = (props) => {
                 <Notes notes={notes}/>
             </main>
             <button onClick={redirectToAddPageHandler}
-                className="shadow-xl shadow-accent/20 bg-accent w-12 h-12 rounded-full absolute bottom-8 right-8 md:bottom-14 md:right-12 right-0">
+                className="shadow-xl shadow-accent/20 bg-accent w-12 h-12 rounded-full absolute bottom-8 right-8 md:bottom-14 md:right-12">
                 <i className="fa-xl fa-solid fa-plus text-center"></i>
             </button>
         </React.Fragment>
