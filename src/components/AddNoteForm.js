@@ -59,6 +59,7 @@ const AddNoteForm = (props) => {
                 setSubtitle(data.subtitle);
                 setText(data.text);
                 miscellaneousCtx.changeColor(data.color);
+                miscellaneousCtx.changeTag(data.tag)
             });
 
         }

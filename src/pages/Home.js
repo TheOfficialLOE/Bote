@@ -10,11 +10,16 @@ const Home = (props) => {
 
     const [notes, setNotes] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState("");
+    const [tag, setTag] = useState("Notes");
 
     // todo: convert both data and search phrase to lowercase first
     useEffect(() => {
         const loadNotes = async () => {
-            const notes = await readAll();
+            const notes = await readAll().then(data => {
+                return data.filter(note => {
+                    return note.tag === tag;
+                })
+            });
             if (searchPhrase.length > 0) {
                 const searchedNotes = notes.filter(note => {
                     return note.title.toLowerCase().includes(searchPhrase.toLowerCase());
@@ -25,14 +30,14 @@ const Home = (props) => {
                 setNotes(notes);
         }
         loadNotes();
-    }, [searchPhrase]);
+    }, [searchPhrase, tag]);
 
     const searchNoteHandler = (phrase) => {
         setSearchPhrase(phrase);
     };
 
     const filterByTagHandler = (tag) => {
-        console.log(tag)
+        setTag(tag);
     };
 
     const redirectToAddPageHandler = () => {
@@ -53,9 +58,6 @@ const Home = (props) => {
                 className="shadow-xl shadow-accent/20 bg-accent w-12 h-12 rounded-full absolute bottom-8 right-8 md:bottom-14 md:right-12 right-0">
                 <i className="fa-xl fa-solid fa-plus text-center"></i>
             </button>
-            {/*<footer className="fixed bottom-0 bg-quickActionsBackground w-full h-20">*/}
-            {/*    <HomeFooter />*/}
-            {/*</footer>*/}
         </React.Fragment>
     );
 };

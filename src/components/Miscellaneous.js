@@ -18,8 +18,8 @@ const Miscellaneous = (props) => {
                 </div>
                 <div className="flex flex-row mt-4">
                     <p className="self-center">Select Tag</p>
-                    <Tag tagTitle="Notes" />
-                    <Tag tagTitle="Work" />
+                    <Tag tagTitle="Notes"  />
+                    <Tag tagTitle="Work"   />
                     <Tag tagTitle="School" />
                 </div>
             </div>
