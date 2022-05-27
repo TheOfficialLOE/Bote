@@ -167,7 +167,7 @@ const AddNoteForm = (props) => {
                           className={`bg-primary w-full mt-8 outline-0 text-xl text-white resize-none overflow-hidden border-l-4 ${border} pl-2 pr-4 rounded-sm`}
                           ref={subRef} onChange={subtitleChangeHandler} value={subtitle}/>
                 <textarea placeholder="Text"
-                          className="bg-primary pb-36 w-full pr-4 outline-0 text-xl text-white mt-10 resize-none overflow-hidden"
+                          className={`bg-primary ${props.action === "add" ? "pb-40" : "pb-52"} md:pb-36 w-full pr-4 outline-0 text-xl text-white mt-10 resize-none overflow-hidden`}
                           ref={textRef} onChange={textChangeHandler} value={text}/>
             </form>
             <ToastContainer/>
