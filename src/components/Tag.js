@@ -1,23 +1,26 @@
 import {useMiscellaneous} from "../store/miscellaneous-context";
+import {useHome} from "../store/home-context";
 
-const Tag = (props) => {
+const Tag = ({source, tagTitle, hide}) => {
 
+    const homeCtx = useHome();
     const miscellaneousCtx = useMiscellaneous();
 
     const changeTagHandler = () => {
-        if (props.source === "modal") {
-            props.filter(props.tagTitle);
-            props.hide();
+        if (source === "modal") {
+            console.log("true")
+            homeCtx.changeTag(tagTitle);
+            hide();
             return;
         }
-        miscellaneousCtx.changeTag(props.tagTitle)
+        miscellaneousCtx.changeTag(tagTitle)
     }
 
     return (
         <button
-            className={`ml-2 h-7 ${!props.source && props.tagTitle === miscellaneousCtx.tag ? "bg-gray-300 text-stone-700" : "bg-stone-700"} px-1 border-2 border-gray-300 rounded-md text-base`}
+            className={`ml-2 h-7 ${!source && tagTitle === miscellaneousCtx.tag ? "bg-gray-300 text-stone-700" : "bg-stone-700"} px-1 border-2 border-gray-300 rounded-md text-base`}
             onClick={changeTagHandler}>
-            {props.tagTitle}
+            {tagTitle}
         </button>
     )
 };

@@ -3,14 +3,18 @@ import SearchBar from "../components/SearchBar";
 import Notes from "../components/Notes";
 import {readAll} from "../store/dbActions";
 import {useNavigate} from "react-router-dom";
+import {useHome} from "../store/home-context";
 
 const Home = (props) => {
 
     const navigate = useNavigate();
 
     const [notes, setNotes] = useState(null);
-    const [searchPhrase, setSearchPhrase] = useState("");
-    const [tag, setTag] = useState("Notes");
+    // const [searchPhrase, setSearchPhrase] = useState("");
+    // const [tag, setTag] = useState("Notes");
+
+    const homeCtx = useHome();
+    const {searchPhrase, tag} = {...homeCtx};
 
     // todo: convert both data and search phrase to lowercase first
     useEffect(() => {
@@ -32,14 +36,6 @@ const Home = (props) => {
         loadNotes();
     }, [searchPhrase, tag]);
 
-    const searchNoteHandler = (phrase) => {
-        setSearchPhrase(phrase);
-    };
-
-    const filterByTagHandler = (tag) => {
-        setTag(tag);
-    };
-
     const redirectToAddPageHandler = () => {
         navigate("/add")
     };
@@ -48,7 +44,7 @@ const Home = (props) => {
         <React.Fragment>
             <header>
                 <h1 className="ml-4 mt-8 text-4xl font-bold md:text-center">My Notes</h1>
-                <SearchBar searchNotes={searchNoteHandler} filter={filterByTagHandler}/>
+                <SearchBar />
             </header>
             <main
                 className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 justify-items-center">
