@@ -29,7 +29,7 @@ const Add = (props) => {
                 <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved} action={props.action}/>
             </main>
             <footer className="translate-y-14 fixed bottom-0 w-full hover:translate-y-0 transition-all">
-                <Miscellaneous />
+                <Miscellaneous action={props.action}/>
             </footer>
         </div>
 
