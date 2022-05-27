@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
-import ColorProvider from "./store/ColorProvider";
+import {MiscellaneousProvider} from "./store/miscellaneous-context";
 import {Route, Routes} from "react-router-dom";
 import {success} from "./util/toast";
 import {ToastContainer} from "react-toastify";
@@ -13,7 +13,7 @@ function App() {
     }
 
     return (
-        <ColorProvider>
+        <MiscellaneousProvider>
             <React.Fragment>
                 <Routes>
                     <Route path="/" element={<Home />}/>
@@ -22,7 +22,7 @@ function App() {
                 </Routes>
                 <ToastContainer/>
             </React.Fragment>
-        </ColorProvider>
+        </MiscellaneousProvider>
     );
 }
 

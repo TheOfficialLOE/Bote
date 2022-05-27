@@ -1,17 +1,17 @@
-import React, {useContext} from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom";
 import AddNoteForm from "../components/AddNoteForm";
 import Miscellaneous from "../components/Miscellaneous";
-import ColorContext from "../store/color-context";
+import {useMiscellaneous} from "../store/miscellaneous-context";
 
 const Add = (props) => {
 
-    const colorCtx = useContext(ColorContext);
+    const miscellaneousCtx = useMiscellaneous();
 
     const navigate = useNavigate();
 
     const navigateBackHandler = () => {
-        colorCtx.reset();
+        miscellaneousCtx.reset();
         navigate(-1);
     };
 
@@ -28,7 +28,7 @@ const Add = (props) => {
             <main className="mt-8 ml-4">
                 <AddNoteForm navigate={navigateBackHandler} onNoteSaved={props.onNoteSaved} action={props.action}/>
             </main>
-            <footer className="fixed bottom-0 w-full translate-y-16 hover:translate-y-0 transition-all">
+            <footer className="fixed bottom-0 w-full hover:translate-y-0 transition-all">
                 <Miscellaneous />
             </footer>
         </div>

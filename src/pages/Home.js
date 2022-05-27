@@ -17,7 +17,7 @@ const Home = (props) => {
             const notes = await readAll();
             if (searchPhrase.length > 0) {
                 const searchedNotes = notes.filter(note => {
-                    return note.title.includes(searchPhrase);
+                    return note.title.toLowerCase().includes(searchPhrase.toLowerCase());
                 });
                 setNotes(searchedNotes);
             }

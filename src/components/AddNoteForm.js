@@ -1,9 +1,9 @@
-import React, {useEffect, useState, useRef, useContext} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import {useParams} from "react-router-dom";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {warn} from "../util/toast";
-import ColorContext from "../store/color-context";
+import {useMiscellaneous} from "../store/miscellaneous-context";
 import {db} from "../store/db";
 import {readSingle, update} from "../store/dbActions";
 
@@ -20,9 +20,10 @@ const AddNoteForm = (props) => {
     const subRef = useRef();
     const textRef = useRef();
 
-    const colorCtx = useContext(ColorContext);
-    const border = colorCtx.border;
-    const color = colorCtx.color;
+    const miscellaneousCtx = useMiscellaneous();
+    const border = miscellaneousCtx.border;
+    const color = miscellaneousCtx.color;
+    const tag = miscellaneousCtx.tag;
 
     // todo: you may want to make a custom hook for input handlers
 
@@ -57,7 +58,7 @@ const AddNoteForm = (props) => {
                 setTitle(data.title);
                 setSubtitle(data.subtitle);
                 setText(data.text);
-                colorCtx.changeColor(data.color);
+                miscellaneousCtx.changeColor(data.color);
             });
 
         }
@@ -98,8 +99,8 @@ const AddNoteForm = (props) => {
                     title,
                     subtitle,
                     text,
-                    color: colorCtx.color,
-                    tag: "Notes",
+                    color,
+                    tag,
                     date: new Date().toISOString().slice(0, 10).replace(/-/g, "/")
                 }).catch(err => {
                     console.log(err);
@@ -132,6 +133,11 @@ const AddNoteForm = (props) => {
                     }
                     else if (data.color !== color) {
                         update(id, { color });
+                        props.onNoteSaved();
+                        props.navigate();
+                    }
+                    else if (data.tag !== tag) {
+                        update(id, { tag });
                         props.onNoteSaved();
                         props.navigate();
                     }
