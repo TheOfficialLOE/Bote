@@ -115,40 +115,40 @@ const AddNoteForm = (props) => {
             case "view": {
 
                 const id = parseInt(params.noteId);
+                let updated = false;
 
                 readSingle(id).then(data => {
                     if (data.title !== title) {
                         update(id, { title })
-                        props.onNoteSaved();
-                        props.navigate();
+                        updated = true;
                     }
-                    else if (data.subtitle !== subtitle) {
+                    if (data.subtitle !== subtitle) {
                         update(id, { subtitle });
-                        props.onNoteSaved();
-                        props.navigate();
+                        updated = true;
                     }
-                    else if (data.text !== text) {
+                    if (data.text !== text) {
                         update(id, { text });
-                        props.onNoteSaved();
-                        props.navigate();
+                        updated = true;
                     }
-                    else if (data.color !== color) {
+                    if (data.color !== color) {
                         update(id, { color });
-                        props.onNoteSaved();
-                        props.navigate();
+                        updated = true;
                     }
-                    else if (data.tag !== tag) {
+                    if (data.tag !== tag) {
                         update(id, { tag });
-                        props.onNoteSaved();
-                        props.navigate();
+                        updated = true;
                     }
-                    else if (data.date !== new Date().toISOString().slice(0, 10).replace(/-/g, "/")) {
+                    if (updated && data.date !== new Date().toISOString().slice(0, 10).replace(/-/g, "/")) {
                         update(id, { date: new Date().toISOString().slice(0, 10).replace(/-/g, "/") });
+                    }
+
+                    if (updated) {
                         props.onNoteSaved();
                         props.navigate();
                     }
                     else
                         props.navigate();
+
                 });
 
                 break;
