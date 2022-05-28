@@ -44,7 +44,7 @@ const Home = (props) => {
                 <SearchBar />
             </header>
             <main
-                className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 justify-items-center">
+                className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
                 <Notes notes={notes}/>
             </main>
             <button onClick={redirectToAddPageHandler}
