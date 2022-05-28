@@ -10,13 +10,10 @@ const Home = (props) => {
     const navigate = useNavigate();
 
     const [notes, setNotes] = useState(null);
-    // const [searchPhrase, setSearchPhrase] = useState("");
-    // const [tag, setTag] = useState("Notes");
 
     const homeCtx = useHome();
     const {searchPhrase, tag} = {...homeCtx};
 
-    // todo: convert both data and search phrase to lowercase first
     useEffect(() => {
         const loadNotes = async () => {
             const notes = await readAll().then(data => {

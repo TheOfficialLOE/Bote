@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import {readAll} from "../store/dbActions";
 import Tag from "./Tag";
 
 const Backdrop = (props) => {

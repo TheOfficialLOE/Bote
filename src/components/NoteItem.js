@@ -11,8 +11,8 @@ const NoteItem = (props) => {
 
     return (
         <article className={`w-48 ${props.bg} p-4 rounded-xl flex flex-col cursor-pointer shadow-xl`} onClick={navigateHandler}>
-            <h3 className="font-bold">{props.title}</h3>
-            <p className="text-sm text-white mt-2">
+            <h3 className="font-bold truncate">{props.title}</h3>
+            <p className={`text-sm text-white mt-2 line-clamp-2 break-words`}>
                 {props.sub ? props.sub : props.text}
             </p>
             <div className="flex flex-row items-center mt-8">
