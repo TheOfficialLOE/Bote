@@ -11,9 +11,10 @@ const ModalOverlay = (props) => {
         <section className="fixed top-[14vh] left-[5%] w-[90%] text-center bg-primary p-1 rounded-md shadow-md z-30 md:w-[40rem] md:left-[calc(50%_-_20rem)] p-2">
             <h3 className="text-2xl font-bold">Filter by tags</h3>
             <div className="mt-4">
-                <Tag tagTitle="Notes"  source="modal" hide={props.hide} />
-                <Tag tagTitle="Work"   source="modal" hide={props.hide} />
-                <Tag tagTitle="School" source="modal" hide={props.hide} />
+                <Tag tagTitle="Notes"   source="modal" hide={props.hide} />
+                <Tag tagTitle="Work"    source="modal" hide={props.hide} />
+                <Tag tagTitle="School"  source="modal" hide={props.hide} />
+                <Tag tagTitle="Discard" source="modal" hide={props.hide} />
             </div>
         </section>
     )

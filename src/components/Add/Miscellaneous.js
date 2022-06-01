@@ -1,8 +1,8 @@
 import React from "react";
-import ColorIcon from "./ColorIcon";
-import Tag from "./Tag";
+import ColorIcon from "../UI/ColorIcon";
+import Tag from "../UI/Tag";
 import {useNavigate, useParams} from "react-router-dom";
-import {db} from "../store/db";
+import {db} from "../../store/db";
 
 const Miscellaneous = (props) => {
 

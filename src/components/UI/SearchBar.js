@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Modal from "./Modal";
-import {useHome} from "../store/home-context";
+import {useHome} from "../../store/home-context";
 
 const SearchBar = (props) => {
 

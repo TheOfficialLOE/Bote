@@ -2,10 +2,10 @@ import React, {useEffect, useState, useRef} from "react";
 import {useParams} from "react-router-dom";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {warn} from "../util/toast";
-import {useMiscellaneous} from "../store/miscellaneous-context";
-import {db} from "../store/db";
-import {readSingle, update} from "../store/dbActions";
+import {warn} from "../../util/toast";
+import {useMiscellaneous} from "../../store/miscellaneous-context";
+import {db} from "../../store/db";
+import {readSingle, update} from "../../store/dbActions";
 
 const AddNoteForm = (props) => {
 

@@ -1,4 +1,4 @@
-import {useMiscellaneous} from "../store/miscellaneous-context";
+import {useMiscellaneous} from "../../store/miscellaneous-context";
 
 const ColorIcon = (props) => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import AddNoteForm from "../components/AddNoteForm";
-import Miscellaneous from "../components/Miscellaneous";
+import AddNoteForm from "../components/Add/AddNoteForm";
+import Miscellaneous from "../components/Add/Miscellaneous";
 import {useMiscellaneous} from "../store/miscellaneous-context";
 
 const Add = (props) => {

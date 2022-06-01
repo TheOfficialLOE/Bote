@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import SearchBar from "../components/SearchBar";
-import Notes from "../components/Notes";
+import SearchBar from "../components/UI/SearchBar";
+import Notes from "../components/Notes/Notes";
 import {readAll} from "../store/dbActions";
 import {useNavigate} from "react-router-dom";
 import {useHome} from "../store/home-context";
@@ -17,9 +17,12 @@ const Home = (props) => {
     useEffect(() => {
         const loadNotes = async () => {
             const notes = await readAll().then(data => {
-                return data.filter(note => {
-                    return note.tag === tag;
-                })
+                if (tag === "Discard")
+                    return data;
+                else
+                    return data.filter(note => {
+                        return note.tag === tag;
+                    });
             });
             if (searchPhrase.length > 0) {
                 const searchedNotes = notes.filter(note => {
@@ -44,11 +47,11 @@ const Home = (props) => {
                 <SearchBar />
             </header>
             <main
-                className="mx-2 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
+                className="mx-2 mb-4 grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
                 <Notes notes={notes}/>
             </main>
             <button onClick={redirectToAddPageHandler}
-                className="shadow-xl shadow-accent/20 bg-accent w-12 h-12 rounded-full absolute bottom-8 right-8 md:bottom-14 md:right-12">
+                className="shadow-xl shadow-accent/20 bg-accent w-12 h-12 rounded-full fixed bottom-8 right-8 md:bottom-14 md:right-12">
                 <i className="fa-xl fa-solid fa-plus text-center"></i>
             </button>
         </React.Fragment>

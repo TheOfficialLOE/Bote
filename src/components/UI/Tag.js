@@ -1,5 +1,5 @@
-import {useMiscellaneous} from "../store/miscellaneous-context";
-import {useHome} from "../store/home-context";
+import {useMiscellaneous} from "../../store/miscellaneous-context";
+import {useHome} from "../../store/home-context";
 
 const Tag = ({source, tagTitle, hide}) => {
 
